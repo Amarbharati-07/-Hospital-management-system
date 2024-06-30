@@ -1,0 +1,102 @@
+CREATE DATABASE hms;
+
+CREATE TABLE admin (
+    admin_id VARCHAR(6) NOT NULL PRIMARY KEY,
+    username VARCHAR(50),
+    name VARCHAR(50),
+    age VARCHAR(50),
+    phone VARCHAR(10),
+    city VARCHAR(50),
+    email VARCHAR(50),
+    gender VARCHAR(50),
+    password VARCHAR(50)
+);
+
+INSERT INTO admin (admin_id, username, name, age, phone, city, email, gender, password) 
+VALUES ('A12345', 'john_doe', 'John Doe', '30', '1234567890', 'New York', 'john.doe@email.com', 'Male', 'password123');
+
+CREATE TABLE patient (
+    pat_id varchar(50) NOT NULL,
+    name varchar(50) NOT NULL,
+    username varchar(50) NOT NULL PRIMARY KEY,
+    password varchar(16),
+    email varchar(50),
+    father_name varchar(50),
+    phone varchar(15),
+    marital_status varchar(50),
+    city varchar(50),
+    gender varchar(50),
+    blood varchar(50),
+    age varchar(50),
+    dob varchar(50),
+    deceased varchar(50),
+    address varchar(50)
+);
+
+INSERT INTO patient (pat_id, name, username, password, email, father_name, phone, marital_status, city, gender, blood, age, dob, deceased, address)
+VALUES ('P123', 'John Doe', 'john_patient', 'password123', 'john.doe@email.com', 'John Doe Sr.', '1234567890', 'Married', 'New York', 'Male', 'O+', '30', '1992-01-01', 'No', '123 Main St');
+
+CREATE TABLE doctor (
+    doc_id varchar(10) NOT NULL PRIMARY KEY,
+    name varchar(100),
+    username varchar(50),
+    password varchar(50),
+    dob varchar(20),
+    address varchar(255),
+    phone varchar(15),
+    email varchar(100),
+    city varchar(50),
+    gender varchar(20),
+    blood varchar(10),
+    age varchar(5),
+    clinic_number varchar(20),
+    joining_date varchar(20),
+    specialization varchar(50),
+    availability varchar(5)
+);
+INSERT INTO doctor (doc_id, name, username, password, dob, address, phone, email, city, gender, blood, age, clinic_number, joining_date, specialization, availability)
+VALUES ('D001', 'Dr. Smith', 'dr_smith', 'password123', '1980-05-15', '123 Medical St', '9876543210', 'dr.smith@email.com', 'New York', 'Male', 'O+', '42', 'C001', '2022-01-15', 'Cardiology', 'Yes');
+
+CREATE TABLE receptionist (
+    res_id varchar(10),
+    name varchar(50),
+    username varchar(50) NOT NULL PRIMARY KEY,
+    password varchar(16),
+    email varchar(50),
+    father_name varchar(50),
+    phone varchar(15),
+    qualification varchar(50),
+    city varchar(50),
+    gender varchar(10),
+    blood varchar(10),
+    age varchar(5),
+    dob varchar(20),
+    joining_date varchar(20),
+    address varchar(100)
+);
+
+INSERT INTO receptionist (res_id, name, username, password, email, father_name, phone, qualification, city, gender, blood, age, dob, joining_date, address)
+VALUES ('R001', 'Mary Johnson', 'mary_receptionist', 'password123', 'mary.johnson@email.com', 'John Johnson', '1234567890', 'BSc in Business Administration', 'Los Angeles', 'Female', 'AB+', '28', '1996-03-10', '2022-02-01', '456 Main St');
+
+CREATE TABLE appointment (
+    app_id varchar(50),
+    p_username varchar(50),
+    name varchar(50),
+    email varchar(50),
+    fname varchar(50),
+    phone varchar(50),
+    marital_status varchar(50),
+    city varchar(50),
+    gender varchar(50),
+    blood varchar(50),
+    age varchar(50),
+    dob varchar(50),
+    decease varchar(50),
+    doctor_username varchar(50),
+    appointment_date varchar(50),
+    appointment_time varchar(50),
+    appointment_status varchar(50)
+);
+
+INSERT INTO appointment (app_id, p_username, name, email, fname, phone, marital_status, city, gender, blood, age, dob, decease, doctor_username, appointment_date, appointment_time, appointment_status)
+VALUES ('A001', 'john_patient', 'John Doe', 'john.doe@email.com', 'John Doe Sr.', '1234567890', 'Married', 'New York', 'Male', 'O+', '30', '1992-01-01', 'No', 'dr_smith', '2022-03-01', '10:00 AM', 'Pending');
